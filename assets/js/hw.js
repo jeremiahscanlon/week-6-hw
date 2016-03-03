@@ -59,9 +59,6 @@ $(document).ready(function() {
 			$.ajax({url: queryURL, method: 'GET'})
 			// when ajax request complete then ...
 			.done(function(response) {
-				
-				// console log entire response
-		    	console.log(response);
 		    	
 		    	// empty the results div 
 		    	$('.results').empty();
@@ -104,18 +101,17 @@ $(document).ready(function() {
     		$.ajax({url: queryURL, method: 'GET'})
 			// when ajax request complete then ...
 			.done(function(response) {
-				
-				// console log entire response
-		    	console.log(response);
 
-		    	var src = response.data.images.fixed_width.url;
-		    	var alt = response.data.slug;
-
-		    	var a = $('<img/>');
-	    		a.attr('src',src);
-	    		a.addClass('gifImage');
-	    		a.attr('alt', alt);
-	    		$( "[data-id='"+id+"']" ).html(a);
+		    	var active = response.data.images.fixed_width.url;
+		    	var still = response.data.images.fixed_width_still.url
+		    	if ($("[data-id='"+id+"']").hasClass('stillImage')) {
+		    		$("[data-id='"+id+"']").attr('src', active);
+	    			$("[data-id='"+id+"']").removeClass('stillImage').addClass('gifImage');
+		    	} else {
+		    		$("[data-id='"+id+"']").attr('src', still);
+	    			$("[data-id='"+id+"']").removeClass('gifImage').addClass('stillImage');
+		    	}
+	    		
 
 			});
 

@@ -15,10 +15,6 @@
 	margin:10px;
 }
 
-.stillImage {
+.stillImage, .gifImage {
 	padding: 10px;
-}
-
-#10wcybG1OfCUCI {
-	display:none;
 }
