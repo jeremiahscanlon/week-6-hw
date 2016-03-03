@@ -70,13 +70,14 @@ $(document).ready(function() {
 		    	for (var i = 0; i < response.data.length; i++) {
 
 		    		// store the variables to be used later
-		    		var src = response.data[i].images.fixed_width_still.url;
+		    		var still = response.data[i].images.fixed_width_still.url;
+		    		var active = response.data[i].images.fixed_width.url;
 		    		var alt = response.data[i].slug;
 		    		var id = response.data[i].id;
 
 		    		// build the still image, add the src, class, alt, and data-id
 		    		var a = $('<img/>');
-		    		a.attr('src',src);
+		    		a.attr('src',still);
 		    		a.addClass('stillImage');
 		    		a.attr('alt', alt);
 		    		a.attr('data-id', id);
@@ -107,11 +108,16 @@ $(document).ready(function() {
 				// console log entire response
 		    	console.log(response);
 
-		    	var src = response.data.images.fixed_width.url;	    		
-		    	console.log(src);
-		    	
+		    	var src = response.data.images.fixed_width.url;
+		    	var alt = response.data.slug;
+
+		    	var a = $('<img/>');
+	    		a.attr('src',src);
+	    		a.addClass('gifImage');
+	    		a.attr('alt', alt);
+	    		$( "[data-id='"+id+"']" ).html(a);
+
 			});
-			
 
     	});
 	}
@@ -153,3 +159,14 @@ $(document).ready(function() {
 	
 });
 
+
+
+
+
+
+	
+
+	
+
+
+	
