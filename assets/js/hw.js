@@ -53,7 +53,7 @@ $(document).ready(function() {
 			var buttonText = $(this).data('name');
 			var button = replaceAll(buttonText,' ','+');
 			var actor = name;
-			var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + actor + button + "&api_key=dc6zaTOxFJmzC&limit=10";
+			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + actor + button + "&api_key=dc6zaTOxFJmzC&limit=10";
 			
 			// create ajax request to call API
 			$.ajax({url: queryURL, method: 'GET'})
@@ -95,7 +95,7 @@ $(document).ready(function() {
 			var id = $(this).data('id');
 
 			// build the new query specifically to the id
-    		var queryURL = 'http://api.giphy.com/v1/gifs/'+id+'?api_key=dc6zaTOxFJmzC';
+    		var queryURL = 'https://api.giphy.com/v1/gifs/'+id+'?api_key=dc6zaTOxFJmzC';
 
     		// create ajax request to call API
     		$.ajax({url: queryURL, method: 'GET'})
