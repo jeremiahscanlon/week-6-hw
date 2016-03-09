@@ -3,8 +3,8 @@
 }
 
 .jumbotron {
-	padding: 0px 20px 25px 20px !important;
-	margin-bottom: 10px !important;
+	padding: 0px 20px 25px 20px;
+	margin-bottom: 10px;
 }
 
 .btn-info, .btn-success {

@@ -54,6 +54,7 @@ $(document).ready(function() {
 			var button = replaceAll(buttonText,' ','+');
 			var actor = name;
 			var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + actor + button + "&api_key=dc6zaTOxFJmzC&limit=10";
+			//var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag="+ actor + button;
 			
 			// create ajax request to call API
 			$.ajax({url: queryURL, method: 'GET'})
@@ -101,9 +102,11 @@ $(document).ready(function() {
     		$.ajax({url: queryURL, method: 'GET'})
 			// when ajax request complete then ...
 			.done(function(response) {
-
+				// create the variables with the URLs
 		    	var active = response.data.images.fixed_width.url;
 		    	var still = response.data.images.fixed_width_still.url
+		    	
+		    	// change the class and the source on click
 		    	if ($("[data-id='"+id+"']").hasClass('stillImage')) {
 		    		$("[data-id='"+id+"']").attr('src', active);
 	    			$("[data-id='"+id+"']").removeClass('stillImage').addClass('gifImage');
